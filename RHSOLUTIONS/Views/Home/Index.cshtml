@@ -1,13 +1,19 @@
-﻿@{
+﻿@model FuncionarioModel
+@{
     ViewData["Title"] = "Home Page";
 }
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../Views/style/HomePage.css" />
+    <link href="~/lib/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
+</head>
     <body>
         <div class="container-fluid">
             <div class="row flex-nowrap">
                 <div class="col-auto col-md-2 bg-dark min-vh-100">
                     <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
                         <a href="/" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-                            <span class="fs-5 d-none d-sm-inline">Bem vindo funcionario</span>
+                            <span class="fs-5 d-none d-sm-inline ">Bem vindo funcionario</span>
                         </a>
                         <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
                             <li class="nav-item">
@@ -16,50 +22,13 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
-                                    <i class="fs-4 bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline">Ponto eletrônico</span>
+                                <a data-bs-toggle="collapse" asp-controller="Ponto" asp-action="Index" class="nav-link px-0 align-middle">
+                                    <i class="fs-4 bi-speedometer" style="color: dimgrey"></i> <span class="ms-1 d-none d-sm-inline">Ponto eletrônico</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="#" class="nav-link px-0 align-middle">
-                                    <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Orders</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#submenu2" data-bs-toggle="collapse" class="nav-link px-0 align-middle ">
-                                    <i class="fs-4 bi-bootstrap"></i> <span class="ms-1 d-none d-sm-inline">Bootstrap</span>
-                                </a>
-                                <ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
-                                    <li class="w-100">
-                                        <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 1</a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 2</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="#submenu3" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
-                                    <i class="fs-4 bi-grid"></i> <span class="ms-1 d-none d-sm-inline">Products</span>
-                                </a>
-                                <ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">
-                                    <li class="w-100">
-                                        <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 1</a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 2</a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 3</a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 4</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="#" class="nav-link px-0 align-middle">
-                                    <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline">Customers</span>
+                                <a asp-controller="" asp-action="" class="nav-link px-0 align-middle">
+                                    <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Folhas de pagamento</span>
                                 </a>
                             </li>
                         </ul>
@@ -81,8 +50,52 @@
                         </div>
                     </div>
                 </div>
-                <div class="col py-3">
-                    Content area...
+                <div>
+                </div>
+                <div class="container" >
+                    <h4 style="width: 300px" class="">Dados pessoais</h4>
+                    <button class="btn btn-primary" style="margin-left:93%; margin-bottom:10px" type="submit">Alterar</button>
+                    <div class="container"  >
+                        <div class="row border" style="margin-bottom:30px">
+                            <div class="row col-md-12 d-flex justify-content-between">
+                                <div class="col-md-6">
+                                    Nome:
+                                </div>
+                                <div class="col-md-6 ">
+                                    Telefone:
+                                </div>
+                                <div class="col border-top border-bottom">
+                                    Email:
+                                </div>
+                                <div class="col border-top border-bottom">
+                                    Cargo:
+                                </div>
+                                <div class="col border-top border-bottom">
+                                    Cpf:
+                                </div>
+                            </div>
+                        </div>
+                        <strong class="">Informações residenciais</strong>
+                        <div class="row border">
+                            <div class="row col-md-12">
+                                <div class="col-md-4">
+                                    Rua:
+                                </div>
+                                <div class="col-md-4">
+                                    Numero:
+                                </div>
+                                <div class="col-md-4">
+                                    Complemento:
+                                </div>
+                                <div class="col border-top border-bottom">
+                                    Cidade:
+                                </div>
+                                <div class="col border-top border-bottom">
+                                    Cep:
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
