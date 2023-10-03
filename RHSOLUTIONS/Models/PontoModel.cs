@@ -13,6 +13,7 @@ namespace PIMIVRH.Models
         public DateTime QuartaBatida { get; set; }
         public int HorasTrabalhadas { get; set; }
         public string Cpf { get; set; }
+        public DateTime Dia { get; set; }
 
     }
 }

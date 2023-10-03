@@ -3,7 +3,6 @@
 *@
 @{
 }
-@model List<PontoModel>
 <body>
     <div class="container-fluid">
         <div class="row flex-nowrap">
@@ -50,19 +49,11 @@
             <div class="container">
                 <div class="row border Regular shadow" style="margin-top:20px; margin-bottom:20px">
                     <a>
-                        <i class="fs-4 bi-clock" style="font-size:30px; margin-right: 20px; margin-left:10px"></i><span style="font-size:30px">Ponto</span>
+                        <i class="fs-4 bi-table" style="font-size:30px; margin-right: 20px; margin-left:10px"></i><span style="font-size:30px">Folha de pagamento</span>
                     </a>
                 </div>
-                <div class="form-row" style="width:500px; margin-top:10px; margin-bottom:40px;">
-                    <div class="col" style="display:inline-block">
-                        <h4>Horas trabalhadas</h4>
-                        <h2>00:00</h2>
-                    </div>
-                    <div class="col" style="display:inline-block">
-                        <h4>Horas à reportar</h4>
-                        <h2>00:00</h2>
-                    </div>
-                </div>
+                <button class="btn btn-primary" type="submit">Gerar folha</button>
+
                 @if (Model != null && Model.Any<PontoModel>())
                 {
                     foreach (PontoModel ponto in Model)
@@ -71,7 +62,7 @@
                             <div class="row border" style="margin-bottom:30px">
                                 <div class="row col-md-12 d-flex justify-content-between">
                                     <div class="col-md-6">
-                                        Dia: @ponto.Dia
+                                        Dia: 24/09/2023
                                     </div>
                                     <div class="col-md-6 ">
                                         Total horas: @ponto.HorasTrabalhadas
@@ -93,10 +84,7 @@
                         </div>
                     }
                 }
-
-
-
+            </div>
             </div>
         </div>
-    </div>
 </body>
