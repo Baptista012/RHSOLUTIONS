@@ -1,10 +1,10 @@
-﻿@model FuncionarioModel
+﻿@model List<FuncionarioModel>
 @{
     ViewData["Title"] = "Home Page";
 }
 <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="../Views/style/HomePage.css" />
+    @*<link rel="stylesheet" href="../Views/style/HomePage.css" />*@
     <link href="~/lib/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
 </head>
     <body>
@@ -13,7 +13,9 @@
                 <div class="col-auto col-md-2 bg-dark min-vh-100">
                     <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
                         <a href="/" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-                            <span class="fs-5 d-none d-sm-inline ">Bem vindo funcionario</span>
+
+                            <span class="fs-5 d-none d-sm-inline ">Bem Vindo </span>
+
                         </a>
                         <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
                             <li class="nav-item">
@@ -29,6 +31,11 @@
                             <li>
                                 <a asp-controller="Folha" asp-action="Index" class="nav-link px-0 align-middle">
                                     <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Folhas de pagamento</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a asp-controller="Ferias" asp-action="Index" class="nav-link px-0 align-middle">
+                                    <i class="fs-4 bi-airplane"></i> <span class="ms-1 d-none d-sm-inline">Férias</span>
                                 </a>
                             </li>
                         </ul>
@@ -52,7 +59,7 @@
                 </div>
                 <div>
                 </div>
-                <div class="container" >
+                <div class="container">
                     <div class="row border Regular shadow" style="margin-top:20px; margin-bottom:20px">
                         <a>
                             <i class="fs-4 bi-house" style="font-size:30px; margin-right: 20px; margin-left:10px"></i><span style="font-size:30px">Home</span>
@@ -60,47 +67,51 @@
                     </div>
                     <h4 style="width: 300px" class="">Dados pessoais</h4>
                     <button class="btn btn-primary" style="margin-left:93%; margin-bottom:10px" type="submit">Alterar</button>
-                    <div class="container"  >
-                        <div class="row border" style="margin-bottom:30px">
-                            <div class="row col-md-12 d-flex justify-content-between">
-                                <div class="col-md-6">
-                                    Nome:
+                    @foreach (FuncionarioModel ponto in Model)
+                    {
+                        <div class="container">
+                            <div class="row border" style="margin-bottom:30px">
+                                <div class="row col-md-12 d-flex justify-content-between">
+                                    <div class="col-md-6">
+                                        Nome: @ponto.Nome
+                                    </div>
+                                    <div class="col-md-6 ">
+                                        Telefone: @ponto.Telefone
+                                    </div>
+                                    <div class="col border-top border-bottom">
+                                        Email: @ponto.Email
+                                    </div>
+                                    <div class="col border-top border-bottom">
+                                        Cargo: @ponto.CargoFunc
+                                    </div>
+                                    <div class="col border-top border-bottom">
+                                        Cpf: @ponto.Cpf
+                                    </div>
                                 </div>
-                                <div class="col-md-6 ">
-                                    Telefone:
-                                </div>
-                                <div class="col border-top border-bottom">
-                                    Email:
-                                </div>
-                                <div class="col border-top border-bottom">
-                                    Cargo:
-                                </div>
-                                <div class="col border-top border-bottom">
-                                    Cpf:
+                            </div>
+                            <strong class="">Informações residenciais</strong>
+                            <div class="row border">
+                                <div class="row col-md-12">
+                                    <div class="col-md-4">
+                                        Rua: @ponto.Endereco
+                                    </div>
+                                    <div class="col-md-4">
+                                        Numero: @ponto.Numero
+                                    </div>
+                                    <div class="col-md-4">
+                                        Complemento: @ponto.Complemento
+                                    </div>
+                                    <div class="col border-top border-bottom">
+                                        Cidade: @ponto.Cidade
+                                    </div>
+                                    <div class="col border-top border-bottom">
+                                        Cep: @ponto.Cep
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <strong class="">Informações residenciais</strong>
-                        <div class="row border">
-                            <div class="row col-md-12">
-                                <div class="col-md-4">
-                                    Rua:
-                                </div>
-                                <div class="col-md-4">
-                                    Numero:
-                                </div>
-                                <div class="col-md-4">
-                                    Complemento:
-                                </div>
-                                <div class="col border-top border-bottom">
-                                    Cidade:
-                                </div>
-                                <div class="col border-top border-bottom">
-                                    Cep:
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    }
+
                 </div>
             </div>
         </div>

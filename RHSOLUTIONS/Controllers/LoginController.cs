@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using PIMIVRH.Interfaces;
 using PIMIVRH.Models;
 using System;
 using System.Collections.Generic;
@@ -10,6 +12,10 @@ namespace PIMIVRH.Controllers
 {
     public class LoginController : Controller
     {
+
+        
+
+
         public IActionResult Index()
         {
             return View();
@@ -25,7 +31,9 @@ namespace PIMIVRH.Controllers
         }
         protected bool Validacao(LoginModel login)
         {
-            var conexaoSql = @"Data Source=DESKTOP-8UUI7PR\SQLEXPRESS;Initial Catalog=DBRH;Integrated Security=True";
+            LoginModel loginModel = new LoginModel();
+
+            var conexaoSql = @"Data Source=DESKTOP-8UUI7PR\SQLEXPRESS2022;Initial Catalog=RHSOLUTIONS;Integrated Security=True";
             SqlConnection conexaoDB = new SqlConnection(conexaoSql);
 
             conexaoDB.Open();
@@ -35,9 +43,13 @@ namespace PIMIVRH.Controllers
                 TempData["MensagemErro"] = "Não foi possivel fazer o login funcional ou senha incorretos";
                 return false;
             }
-            
+            if (login.Funcional == " " || login.Senha == " ")
+            {
+                TempData["MensagemErro"] = "Não foi possivel fazer o login funcional ou senha incorretos";
+                return false;
+            }
 
-            string query = $"SELECT Funcional, Senha FROM FUNCIONARIOS WHERE Funcional = {login.Funcional} AND Senha = {login.Senha}";
+            string query = $"SELECT Funcional, Senha FROM FUNCIONARIO WHERE Funcional = '{login.Funcional}' AND Senha = '{login.Senha}'";
             SqlCommand command = new SqlCommand(query, conexaoDB);
             SqlDataReader reader = command.ExecuteReader();
             if (!reader.Read())
@@ -49,6 +61,9 @@ namespace PIMIVRH.Controllers
             }
             else
             {
+                loginModel.Funcional = reader.GetString(0);
+                HttpContext.Session.SetString("Funcional", loginModel.Funcional);
+                
                 
             return true;
             }

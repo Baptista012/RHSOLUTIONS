@@ -7,11 +7,11 @@ namespace PIMIVRH.Models
 {
     public class PontoModel
     {
-        public DateTime PrimeiraBatida { get; set; }
-        public DateTime SegundaBatida { get; set; }
-        public DateTime TerceiraBatida { get; set; }
-        public DateTime QuartaBatida { get; set; }
-        public int HorasTrabalhadas { get; set; }
+        public TimeSpan PrimeiraBatida { get; set; } = TimeSpan.Zero;
+        public TimeSpan SegundaBatida { get; set; } = TimeSpan.Zero;
+        public TimeSpan TerceiraBatida { get; set; } = TimeSpan.Zero;
+        public TimeSpan QuartaBatida { get; set; } = TimeSpan.Zero;
+        public TimeSpan HorasTrabalhadas { get; set; } = TimeSpan.Zero;
         public string Cpf { get; set; }
         public DateTime Dia { get; set; }
 

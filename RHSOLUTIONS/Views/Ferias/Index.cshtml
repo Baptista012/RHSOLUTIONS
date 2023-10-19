@@ -1,0 +1,252 @@
+﻿
+<head>
+    <meta charset="utf-8" />
+    @*<link rel="stylesheet" href="../Views/style/HomePage.css" />*@
+    <link href="~/lib/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row flex-nowrap">
+            <div class="col-auto col-md-2 bg-dark min-vh-100">
+                <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
+                    <a href="/" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+
+                        <span class="fs-5 d-none d-sm-inline ">Bem Vindo </span>
+
+                    </a>
+                    <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
+                        <li class="nav-item">
+                            <a class="nav-link align-middle px-0"  asp-controller="Home" asp-action="Index">
+                                <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Home</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a data-bs-toggle="collapse" asp-controller="Ponto" asp-action="Index" class="nav-link px-0 align-middle">
+                                <i class="fs-4 bi-clock"></i> <span class="ms-1 d-none d-sm-inline">Ponto eletrônico</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a asp-controller="Folha" asp-action="Index" class="nav-link px-0 align-middle">
+                                <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Folhas de pagamento</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a asp-controller="Ferias" asp-action="Index" class="nav-link px-0 align-middle">
+                                <i class="fs-4 bi-airplane"></i> <span class="ms-1 d-none d-sm-inline">Férias</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <hr>
+                    <div class="dropdown pb-4">
+                        <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-person-fill"></i>
+                            <span class="d-none d-sm-inline mx-1">Usuário</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
+                            <li><a class="dropdown-item" href="#">New project...</a></li>
+                            <li><a class="dropdown-item" href="#">Settings</a></li>
+                            <li><a class="dropdown-item" href="#">Profile</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Sign out</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div>
+            </div>
+            <div class="container">
+                <div class="row border Regular shadow" style="margin-top:20px; margin-bottom:20px">
+                    <a>
+                        <i class="fs-4 bi-airplane" style="font-size:30px; margin-right: 20px; margin-left:10px"></i><span style="font-size:30px">Ferias</span>
+                    </a>
+                </div>
+                <h3 style="width: 700px" class="">Selecione em quantos periodos deseja dividir as ferias</h3>
+
+                <div class="container" style="margin-bottom: 20px">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                        <label class="form-check-label" for="inlineRadio1">1</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                        <label class="form-check-label" for="inlineRadio2">2</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">
+                        <label class="form-check-label" for="inlineRadio3">3</label>
+                    </div>
+                </div>
+
+                <div class="container border" id="divPeriod1" style="display: none; margin-bottom: 20px">
+                    <h4>Primeiro periodo</h4>
+                    <form>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Data Inicio</label>
+                            <input type="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                        </div>
+                        <label for="inputQtdDias">Qtd Dias</label>
+                        <select class="form-control" style="width:70px; margin-bottom: 20px">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
+                            <option>7</option>
+                            <option>8</option>
+                            <option>9</option>
+                            <option>10</option>
+                            <option>11</option>
+                            <option>12</option>
+                            <option>13</option>
+                            <option>14</option>
+                            <option>15</option>
+                            <option>16</option>
+                            <option>17</option>
+                            <option>18</option>
+                            <option>19</option>
+                            <option>20</option>
+                            <option>21</option>
+                            <option>22</option>
+                            <option>23</option>
+                            <option>24</option>
+                            <option>25</option>
+                            <option>26</option>
+                            <option>27</option>
+                            <option>28</option>
+                            <option>29</option>
+                            <option>30</option>
+                        </select>
+                    </form>
+                </div>
+
+                <div class="container border" id="divPeriod2" style="display: none; margin-bottom: 20px">
+                    <h4>Segundo periodo</h4>
+                    <form>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Data Inicio</label>
+                            <input type="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                        </div>
+                        <label for="inputQtdDias">Qtd Dias</label>
+                        <select class="form-control" style="width: 70px; margin-bottom: 20px">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
+                            <option>7</option>
+                            <option>8</option>
+                            <option>9</option>
+                            <option>10</option>
+                            <option>11</option>
+                            <option>12</option>
+                            <option>13</option>
+                            <option>14</option>
+                            <option>15</option>
+                            <option>16</option>
+                            <option>17</option>
+                            <option>18</option>
+                            <option>19</option>
+                            <option>20</option>
+                            <option>21</option>
+                            <option>22</option>
+                            <option>23</option>
+                            <option>24</option>
+                            <option>25</option>
+                            <option>26</option>
+                            <option>27</option>
+                            <option>28</option>
+                            <option>29</option>
+                            <option>30</option>
+                        </select>
+                    </form>
+                </div>
+
+                <div class="container border" id="divPeriod3" style="display: none; margin-bottom: 20px">
+                    <h4>Terceiro periodo</h4>
+                    <form>
+                        <div class="form-group">
+                            <label for="inputDataInicio">Data Inicio</label>
+                            <input type="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Data Início">
+                        </div>
+                        <label for="inputQtdDias">Qtd Dias</label>
+                        <select class="form-control" style="width:70px; margin-bottom: 20px">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
+                            <option>7</option>
+                            <option>8</option>
+                            <option>9</option>
+                            <option>10</option>
+                            <option>11</option>
+                            <option>12</option>
+                            <option>13</option>
+                            <option>14</option>
+                            <option>15</option>
+                            <option>16</option>
+                            <option>17</option>
+                            <option>18</option>
+                            <option>19</option>
+                            <option>20</option>
+                            <option>21</option>
+                            <option>22</option>
+                            <option>23</option>
+                            <option>24</option>
+                            <option>25</option>
+                            <option>26</option>
+                            <option>27</option>
+                            <option>28</option>
+                            <option>29</option>
+                            <option>30</option>
+                        </select>
+                    </form>
+                </div>
+                <button type="submit" id="Enviar" class="btn btn-primary" style="display:none;">Enviar</button>
+                
+                <script>
+                    // Função para mostrar/ocultar as divs de período com base na seleção do usuário
+                    function togglePeriodDivs() {
+                        var selectedValue = document.querySelector('input[name="inlineRadioOptions"]:checked').value;
+
+                        // Oculta todas as divs de período
+                        document.getElementById("divPeriod1").style.display = "none";
+                        document.getElementById("divPeriod2").style.display = "none";
+                        document.getElementById("divPeriod3").style.display = "none";
+                        
+
+                        // Mostra a div de período correspondente à seleção
+                        if (selectedValue === "option1") {
+                            document.getElementById("divPeriod1").style.display = "block";
+                            document.getElementById("Enviar").style.display = "block";
+                        } else if (selectedValue === "option2") {
+                            document.getElementById("divPeriod1").style.display = "block";
+                            document.getElementById("divPeriod2").style.display = "block";
+                            document.getElementById("Enviar").style.display = "block";
+                        } else if (selectedValue === "option3") {
+                            document.getElementById("divPeriod1").style.display = "block";
+                            document.getElementById("divPeriod2").style.display = "block";
+                            document.getElementById("divPeriod3").style.display = "block";
+                            document.getElementById("Enviar").style.display = "block";
+                        }
+                    }
+
+                    // Adicione um ouvinte de evento para os botões de opção de rádio
+                    var radioButtons = document.querySelectorAll('input[name="inlineRadioOptions"]');
+                    radioButtons.forEach(function (radioButton) {
+                        radioButton.addEventListener("change", togglePeriodDivs);
+                    });
+
+                    // Chame a função inicialmente para refletir o estado inicial da seleção
+                    togglePeriodDivs();
+                </script>
+
+            </div>
+        </div>
+    </div>
+</body>
