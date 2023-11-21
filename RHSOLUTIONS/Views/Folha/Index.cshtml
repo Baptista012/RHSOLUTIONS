@@ -3,6 +3,7 @@
 *@
 @{
 }
+@model FolhaModel
 <body>
     <div class="container-fluid">
         <div class="row flex-nowrap">
@@ -32,23 +33,13 @@
                                 <i class="fs-4 bi-airplane"></i> <span class="ms-1 d-none d-sm-inline">Férias</span>
                             </a>
                         </li>
+                        <li style="margin-top: 680px">
+                            <a data-bs-toggle="collapse" asp-controller="Login" asp-action="Index" class="nav-link px-0 align-middle">
+                                <i class="fs-4 bi-box-arrow-in-left"></i> <span class="ms-1 d-none d-sm-inline">Sair</span>
+                            </a>
+                        </li>
                     </ul>
                     <hr>
-                    <div class="dropdown pb-4">
-                        <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="bi bi-person-fill"></i>
-                            <span class="d-none d-sm-inline mx-1">Usuário</span>
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
-                            <li><a class="dropdown-item" href="#">New project...</a></li>
-                            <li><a class="dropdown-item" href="#">Settings</a></li>
-                            <li><a class="dropdown-item" href="#">Profile</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="#">Sign out</a></li>
-                        </ul>
-                    </div>
                 </div>
             </div>
             <div class="container">
@@ -58,8 +49,75 @@
                     </a>
                 </div>
 
-                <button class="btn btn-primary" type="submit" asp-controller="Folha" asp-action="DownLoadFile">Gerar folha</button>
-            </div>
+                <form class="border">
+                    <div class="form-group row">
+                        <label for="staticEmail" class="col-sm-2 col-form-label">Nome</label>
+                        <div class="col-sm-10">
+                            <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="@Model.Nome">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+                        <div class="col-sm-10">
+                            <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="@Model.Email">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="staticEmail" class="col-sm-2 col-form-label">Cpf</label>
+                        <div class="col-sm-10">
+                            <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="@Model.Cpf">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="staticEmail" class="col-sm-2 col-form-label">Telefone</label>
+                        <div class="col-sm-10">
+                            <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="@Model.Telefone">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="staticEmail" class="col-sm-2 col-form-label">Cargo</label>
+                        <div class="col-sm-10">
+                            <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="@Model.Cargo">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="staticEmail" class="col-sm-2 col-form-label">Valor auxilio alimentação</label>
+                        <div class="col-sm-10">
+                            <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="@Model.VAuxilioAlim">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="staticEmail" class="col-sm-2 col-form-label">Valor auxilio refeição</label>
+                        <div class="col-sm-10">
+                            <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="@Model.VAuxilioRef">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="staticEmail" class="col-sm-2 col-form-label">Vale transporte</label>
+                        <div class="col-sm-10">
+                            <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="@Model.ValeTransporte">
+                        </div>
+                    </div>
+                    @*<div class="form-group row">
+                        <label for="staticEmail" class="col-sm-2 col-form-label">Horas</label>
+                        <div class="col-sm-10">
+                            <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="">
+                        </div>
+                    </div>*@
+                    <div class="form-group row">
+                        <label for="staticEmail" class="col-sm-2 col-form-label">Salário bruto</label>
+                        <div class="col-sm-10">
+                            <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="@Model.Salario">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="staticEmail" class="col-sm-2 col-form-label">Salário Liquido</label>
+                        <div class="col-sm-10">
+                            <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="@ViewBag.salarioLiquido">
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
+    </div>
 </body>

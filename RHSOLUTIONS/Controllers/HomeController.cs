@@ -21,6 +21,11 @@ namespace PIMIVRH.Controllers
             return View(listaPonto);
         }
 
+        public IActionResult Redirect()
+        {
+            return RedirectToAction("Index", "Alterar");
+        }
+
         public IActionResult Privacy()
         {
             return View();

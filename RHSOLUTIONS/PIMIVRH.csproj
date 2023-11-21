@@ -24,11 +24,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="Controllers\AlterarDadosController.cs" />
     <Compile Remove="Controllers\HomeController1.cs" />
   </ItemGroup>
 
   <ItemGroup>
     <Content Remove="Views\Folha\View.cshtml" />
+    <Content Remove="Views\Home\IndexRh.cshtml" />
   </ItemGroup>
 
   <ItemGroup>

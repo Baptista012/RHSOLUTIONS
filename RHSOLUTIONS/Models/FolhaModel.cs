@@ -7,10 +7,17 @@ namespace PIMIVRH.Models
 {
     public class FolhaModel
     {
-        
-            public int Id { get; set; }
-            public String FileName { get; set; }
-            public byte[] FileContent { get; set; }
-        
+        public string Nome { get; set; }
+        public string Cpf { get; set; }
+        public string Telefone { get; set; }
+        public string Cargo { get; set; }
+        public double Salario { get; set; }
+        public double VAuxilioAlim { get; set; }
+        public double VAuxilioRef { get; set; }
+        public string Email { get; set; }
+        public string ValeTransporte { get; set; }
+        public int Horas { get; set; }
+        public double Imposto { get; set; }
+
     }
 }

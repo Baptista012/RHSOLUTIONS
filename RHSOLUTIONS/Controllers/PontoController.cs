@@ -70,6 +70,8 @@ namespace PIMIVRH.Controllers
             }
             horasReportar = horasNoMes - horasTotais.TotalHours;
 
+            HttpContext.Session.SetString("horasTotais", horasReportar.ToString("N2"));
+
             ViewBag.reportar = horasReportar.ToString("N2");
             ViewBag.data = $"{horasTotais.Hours}:{horasTotais.Minutes}";
         }
@@ -156,14 +158,22 @@ namespace PIMIVRH.Controllers
 
         private TimeSpan CalcularHorasTrabalhadas(List<PontoModel> lista)
         {
-            foreach(var item in lista)
+            TimeSpan horaTrabalhadaTotal = TimeSpan.Zero;
+
+            foreach (var item in lista)
             {
-                var horasPrimeiroPeriodo = item.SegundaBatida - item.PrimeiraBatida;
-                var horasSegundoPeriodo = item.QuartaBatida - item.TerceiraBatida;
-                var horaTrabalhadaTotal = horasPrimeiroPeriodo + horasSegundoPeriodo;
-                return horaTrabalhadaTotal;
+
+                if (item.SegundaBatida != TimeSpan.Zero && item.QuartaBatida != TimeSpan.Zero)
+                {
+                    var horasPrimeiroPeriodo = item.SegundaBatida - item.PrimeiraBatida;
+                    var horasSegundoPeriodo = item.QuartaBatida - item.TerceiraBatida;
+                    horaTrabalhadaTotal += horasPrimeiroPeriodo + horasSegundoPeriodo;
+                }
+                    
             }
-            return TimeSpan.Zero;
+            return horaTrabalhadaTotal;
+
+
         }
     }
 }
