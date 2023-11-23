@@ -26,7 +26,7 @@ namespace PIMIVRH.Controllers
             if (Validacao(login))
             {
                 return RedirectToAction("Index", "Home");
-            }
+            } 
             return View("Index");
         }
         protected bool Validacao(LoginModel login)
@@ -49,6 +49,11 @@ namespace PIMIVRH.Controllers
                 return false;
             }
 
+            if (!login.Funcional.StartsWith("033"))
+            {
+                TempData["MensagemErro"] = "não foi possivel fazer o login";
+                return false;
+            }
             string query = $"SELECT Funcional, Senha FROM FUNCIONARIO WHERE Funcional = '{login.Funcional}' AND Senha = '{login.Senha}'";
             SqlCommand command = new SqlCommand(query, conexaoDB);
             SqlDataReader reader = command.ExecuteReader();
