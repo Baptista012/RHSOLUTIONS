@@ -54,14 +54,21 @@ namespace PIMIVRH.Controllers
             double descontoIR = CalculoImpostoDeRenda(folha);
             double descontoInss = CalculoInss(folha);
             double descontoVt = CalculoValeTransporte(folha);
+            double descontoFgts = CalculoFgts(folha);
 
-            double salarioLiquido = folha.Salario - (descontoInss + descontoIR + descontoVt);
+            double salarioLiquido = folha.Salario - (descontoInss + descontoIR + descontoVt + descontoFgts);
             ViewBag.salarioLiquido = $"{salarioLiquido}";
             conexaoDB.Close();
 
             return folha;
 
                 
+        }
+        public double CalculoFgts(FolhaModel folha)
+        {
+            double x = folha.Salario;
+            x = (x * 8) / 100;
+            return x;
         }
 
         public double CalculoImpostoDeRenda(FolhaModel model)
