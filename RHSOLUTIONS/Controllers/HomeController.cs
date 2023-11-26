@@ -65,7 +65,7 @@ namespace PIMIVRH.Controllers
                 Home.Email = reader.GetString(9);
                 Home.Endereco = reader.GetString(13);
                 Home.Numero = reader.GetInt32(14);
-                Home.Complemento = reader.GetString(15);
+                Home.Complemento = reader.IsDBNull(15) ? "Não inserido" : reader.GetString(15);
                 Home.Cidade = reader.GetString(16);
                 Home.Cep = reader.GetString(17);
 
