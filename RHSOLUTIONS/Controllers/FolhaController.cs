@@ -109,36 +109,52 @@ namespace PIMIVRH.Controllers
 
         public double CalculoInss(FolhaModel model)
         {
-            double valorDesconto;
-            double inicioFaixa = 1320.00;
-            double faixaUm = 2571.29;
-            double faixaDois = 3856.94;
-            double faixaTres = 7507.49;
+            try
+            {
+                double x = model.Salario;
+                if (x <= 1320)
+                {
+                    x = (x * 7) / 100;
+                    return x;
+                }
+                else if (x >= 1321 && x <= 2571)
+                {
+                    x -= 1320;
+                    x = (x * 9) / 100;
+                    x += 99;
+                    return x;
+                }
+                else if (x >= 2572 && x <= 3856)
+                {
+                    x -= 2571.29;
+                    x = (x * 12) / 100;
+                    x += 99;
+                    x += 112.62;
+                    return x;
+                }
+                else if (x >= 3857 && x <= 7507.49)
+                {
+                    x -= 3650.55;
+                    x = (x * 14) / 100;
+                    x += 99;
+                    x += 112.62;
+                    x += 154.28;
+                    return x;
+                }
+                else if (x > 7507.49)
+                {
+                    return x = 876.97;
+                }
+                else
+                {
+                    return 0;
+                }
 
-            double[] aliquotas = { 0.075, 0.09, 0.12, 0.14 };
-            
-
-            if (model.Salario >= inicioFaixa && model.Salario < faixaUm)
-            {
-                valorDesconto = model.Salario * aliquotas[0];
-                return valorDesconto;
             }
-            else if (model.Salario >= faixaUm && model.Salario < faixaDois)
+            catch (Exception)
             {
-                valorDesconto = model.Salario * aliquotas[1]; 
-                return valorDesconto;
+                throw;
             }
-            else if (model.Salario >= faixaDois && model.Salario < faixaTres)
-            {
-                valorDesconto = model.Salario * aliquotas[2];
-                return valorDesconto;
-            }
-            else if (model.Salario >= faixaTres)
-            {
-                valorDesconto = model.Salario * aliquotas[3];
-                return valorDesconto;
-            }
-            return 0.0;
         }
 
         public double CalculoValeTransporte(FolhaModel model)
