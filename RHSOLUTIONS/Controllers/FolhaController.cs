@@ -75,36 +75,43 @@ namespace PIMIVRH.Controllers
 
         public double CalculoImpostoDeRenda(FolhaModel model)
         {
-            double valorDesconto;
-            double inicioFaixa = 2112.00;
-            double faixaUm = 2826.66;
-            double faixaDois = 3751.05;
-            double faixaTres = 4664.68;
+            double x = model.Salario;
+            if (x < 2112)
+            {
+                
+                return x = 0;
+            }
+            else if (x > 2112 && x <= 2826.65)
+            {
+                
+                x = (x * 7.5) / 100;
+                x -= 158.40;
+                return x;
 
-            double[] aliquotas = { 0.075, 0.15, 0.225, 0.275 };
-            double[] deducao = { 158.40, 370.40, 651.73, 884.96 };
-            
-            if(model.Salario >= inicioFaixa && model.Salario < faixaUm)
-            {
-                valorDesconto = (model.Salario * aliquotas[0]) - deducao[0];
-                return valorDesconto;
             }
-            else if(model.Salario >= faixaUm && model.Salario < faixaDois)
+            else if (x > 2826.65 && x <= 3751.05)
             {
-                valorDesconto = (model.Salario * aliquotas[1]) - deducao[1];
-                return valorDesconto;
+                
+                x = (x * 15) / 100;
+                x -= 370.40;
+                return x;
             }
-            else if (model.Salario >= faixaDois && model.Salario < faixaTres)
+            else if (x > 3751.05 && x <= 4664.68)
             {
-                valorDesconto = (model.Salario * aliquotas[2]) - deducao[2];
-                return valorDesconto;
+                
+                x = (x * 22.5) / 100;
+                x -= 651.73;
+                return x;
             }
-            else if (model.Salario >= faixaTres)
+            else if (x > 4664.68)
             {
-                valorDesconto = (model.Salario * aliquotas[3]) - deducao[3];
-                return valorDesconto;
+                
+                x = (x * 27.5) / 100;
+                x -= 884.96;
+                return x;
             }
-            return 0.0;
+            else
+            { return 0; }
         }
 
         public double CalculoInss(FolhaModel model)
@@ -114,11 +121,13 @@ namespace PIMIVRH.Controllers
                 double x = model.Salario;
                 if (x <= 1320)
                 {
+                    
                     x = (x * 7) / 100;
                     return x;
                 }
                 else if (x >= 1321 && x <= 2571)
                 {
+                    
                     x -= 1320;
                     x = (x * 9) / 100;
                     x += 99;
@@ -126,6 +135,7 @@ namespace PIMIVRH.Controllers
                 }
                 else if (x >= 2572 && x <= 3856)
                 {
+                    
                     x -= 2571.29;
                     x = (x * 12) / 100;
                     x += 99;
@@ -134,7 +144,8 @@ namespace PIMIVRH.Controllers
                 }
                 else if (x >= 3857 && x <= 7507.49)
                 {
-                    x -= 3650.55;
+                    
+                    x -= 3856.94;
                     x = (x * 14) / 100;
                     x += 99;
                     x += 112.62;
@@ -143,6 +154,7 @@ namespace PIMIVRH.Controllers
                 }
                 else if (x > 7507.49)
                 {
+                    
                     return x = 876.97;
                 }
                 else
