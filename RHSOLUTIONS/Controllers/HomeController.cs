@@ -9,6 +9,7 @@ using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using PIMIVRH.Interfaces;
 
 namespace PIMIVRH.Controllers
 {
@@ -34,7 +35,8 @@ namespace PIMIVRH.Controllers
 
         public List<FuncionarioModel> listarHome()
         {
-            var conexaoSql = @"Data Source=DESKTOP-8UUI7PR\SQLEXPRESS2022;Initial Catalog=RHSOLUTIONS;Integrated Security=True";
+            conexaoSql Connectiostring = new conexaoSql();
+            var conexaoSql = Connectiostring.ConnectionString;
             SqlConnection conexaoDB = new SqlConnection(conexaoSql);
             FuncionarioModel Home = new FuncionarioModel();
 

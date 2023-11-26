@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
+using PIMIVRH.Interfaces;
 
 namespace PIMIVRH.Controllers
 {
@@ -19,7 +20,8 @@ namespace PIMIVRH.Controllers
 
         public FeriasModel selectFerias()
         {
-            var conexaoSql = @"Data Source=DESKTOP-8UUI7PR\SQLEXPRESS2022;Initial Catalog=RHSOLUTIONS;Integrated Security=True";
+            conexaoSql Connectiostring = new conexaoSql();
+            var conexaoSql = Connectiostring.ConnectionString;
             SqlConnection conexaoDB = new SqlConnection(conexaoSql);
 
             var NCpf = HttpContext.Session.GetString("Cpf");
@@ -167,7 +169,8 @@ namespace PIMIVRH.Controllers
         
         private void insert_com_um_periodo(FeriasModel modelo)
         {
-            var conexaoSql = @"Data Source=DESKTOP-8UUI7PR\SQLEXPRESS2022;Initial Catalog=RHSOLUTIONS;Integrated Security=True";
+            conexaoSql Connectiostring = new conexaoSql();
+            var conexaoSql = Connectiostring.ConnectionString;
             SqlConnection conexaoDB = new SqlConnection(conexaoSql);
 
             conexaoDB.Open();
@@ -190,7 +193,8 @@ namespace PIMIVRH.Controllers
         }
         private void insert_com_dois_periodos(FeriasModel modelo)
         {
-            var conexaoSql = @"Data Source=DESKTOP-8UUI7PR\SQLEXPRESS2022;Initial Catalog=RHSOLUTIONS;Integrated Security=True";
+            conexaoSql Connectiostring = new conexaoSql();
+            var conexaoSql = Connectiostring.ConnectionString;
             SqlConnection conexaoDB = new SqlConnection(conexaoSql);
             conexaoDB.Open();
             var NCpf = HttpContext.Session.GetString("Cpf");
@@ -219,7 +223,8 @@ namespace PIMIVRH.Controllers
         private void insert_com_tres_periodos(FeriasModel modelo)
         {
 
-            var conexaoSql = @"Data Source=DESKTOP-8UUI7PR\SQLEXPRESS2022;Initial Catalog=RHSOLUTIONS;Integrated Security=True";
+            conexaoSql Connectiostring = new conexaoSql();
+            var conexaoSql = Connectiostring.ConnectionString;
             SqlConnection conexaoDB = new SqlConnection(conexaoSql);
 
             conexaoDB.Open();

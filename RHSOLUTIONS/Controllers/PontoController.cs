@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
+using PIMIVRH.Interfaces;
 
 namespace PIMIVRH.Controllers
 {
@@ -24,7 +25,8 @@ namespace PIMIVRH.Controllers
 
         public List<PontoModel> ListarPontoEletronico()
         {
-            var conexaoSql = @"Data Source=DESKTOP-8UUI7PR\SQLEXPRESS2022;Initial Catalog=RHSOLUTIONS;Integrated Security=True";
+            conexaoSql Connectiostring = new conexaoSql();
+            var conexaoSql = Connectiostring.ConnectionString;
             SqlConnection conexaoDB = new SqlConnection(conexaoSql);
 
             List<PontoModel> lista = new List<PontoModel>();
@@ -78,7 +80,8 @@ namespace PIMIVRH.Controllers
 
         public IActionResult BaterPonto()
         {
-            var conexaoSql = @"Data Source=DESKTOP-8UUI7PR\SQLEXPRESS2022;Initial Catalog=RHSOLUTIONS;Integrated Security=True";
+            conexaoSql Connectiostring = new conexaoSql();
+            var conexaoSql = Connectiostring.ConnectionString;
             SqlConnection conexaoDB = new SqlConnection(conexaoSql);
             PontoModel ponto = new PontoModel();
 
@@ -141,7 +144,8 @@ namespace PIMIVRH.Controllers
 
         public void iserirHoras(string dataFormatada, TimeSpan horasTrabalhadas)
         {
-            var conexaoSql = @"Data Source=DESKTOP-8UUI7PR\SQLEXPRESS2022;Initial Catalog=RHSOLUTIONS;Integrated Security=True";
+            conexaoSql Connectiostring = new conexaoSql();
+            var conexaoSql = Connectiostring.ConnectionString;
             SqlConnection conexaoDB = new SqlConnection(conexaoSql);
 
             conexaoDB.Open();
