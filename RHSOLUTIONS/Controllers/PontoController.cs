@@ -71,11 +71,12 @@ namespace PIMIVRH.Controllers
                 horasTotais = horasTotais + horasDia;
             }
             horasReportar = horasNoMes - horasTotais.TotalHours;
+            horasReportar = horasReportar + 8;
 
             HttpContext.Session.SetString("horasTotais", horasReportar.ToString("N2"));
 
             ViewBag.reportar = horasReportar.ToString("N2");
-            ViewBag.data = $"{horasTotais.Hours}:{horasTotais.Minutes}";
+            ViewBag.data = $"{horasTotais.TotalHours}:{horasTotais.Minutes}";
         }
 
         public IActionResult BaterPonto()
