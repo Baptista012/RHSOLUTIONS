@@ -52,13 +52,12 @@ namespace PIMIVRH.Controllers
                 folha.Cpf = NCpf;
 
             }
-
-            double descontoIR = CalculoImpostoDeRenda(folha);
             double descontoInss = CalculoInss(folha);
+            double descontoIR = CalculoImpostoDeRenda(folha, descontoInss);
             double descontoVt = CalculoValeTransporte(folha);
-            double descontoFgts = CalculoFgts(folha);
+            
 
-            double salarioLiquido = folha.Salario - (descontoInss + descontoIR + descontoVt + descontoFgts);
+            double salarioLiquido = folha.Salario - (descontoInss + descontoIR + descontoVt);
             ViewBag.salarioLiquido = $"{salarioLiquido}";
             conexaoDB.Close();
 
@@ -66,16 +65,10 @@ namespace PIMIVRH.Controllers
 
                 
         }
-        public double CalculoFgts(FolhaModel folha)
-        {
-            double x = folha.Salario;
-            x = (x * 8) / 100;
-            return x;
-        }
 
-        public double CalculoImpostoDeRenda(FolhaModel model)
+        public double CalculoImpostoDeRenda(FolhaModel model, double Inss)
         {
-            double x = model.Salario;
+            double x = model.Salario - Inss;
             if (x < 2112)
             {
                 
